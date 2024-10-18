@@ -9,7 +9,8 @@
         "nette/bootstrap": "^3.2",
         "nette/application": "^3.2",
         "latte/latte": "^3.0",
-        "tracy/tracy": "^2.10"
+        "tracy/tracy": "^2.10",
+        "contributte/console": "^0.10.1"
     },
     "autoload": {
         "psr-4": {
