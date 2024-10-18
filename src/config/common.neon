@@ -1,3 +1,6 @@
+extensions:
+	spameriElasticSearch: \Spameri\Elastic\DI\SpameriElasticSearchExtension
+
 routing:
 	routes:
 		"<presenter>/<action>[/<x>/<y>]": Engineer:default
@@ -6,3 +9,7 @@ routing:
 application:
 	mapping:
 		*: Webtorio\UI\Presenter\*Presenter
+
+
+spameriElasticSearch:
+	debug: true
