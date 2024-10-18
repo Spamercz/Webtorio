@@ -1,0 +1,30 @@
+{
+    "name": "spamer/webtorio",
+    "type": "project",
+    "require": {
+        "php": ">= 8.2",
+        "nette/di": "^3.2",
+        "spameri/elastic": "v2.0.x-dev",
+        "spameri/elastic-query": "dev-master",
+        "nette/bootstrap": "^3.2",
+        "nette/application": "^3.2",
+        "latte/latte": "^3.0",
+        "tracy/tracy": "^2.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Webtorio\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Spamer",
+            "email": "vcevela@gmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}

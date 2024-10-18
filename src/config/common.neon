@@ -1,0 +1,8 @@
+routing:
+	routes:
+		"<presenter>/<action>[/<x>/<y>]": Engineer:default
+
+
+application:
+	mapping:
+		*: Webtorio\UI\Presenter\*Presenter
