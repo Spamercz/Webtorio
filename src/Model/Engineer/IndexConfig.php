@@ -8,6 +8,7 @@ class IndexConfig extends \Spameri\Elastic\Settings\AbstractIndexConfig
 	public function __construct(
 		string $index = 'engineer',
 		array $entityClass = [
+			\Webtorio\Model\Engineer\Entity::class
 		],
 	)
 	{
