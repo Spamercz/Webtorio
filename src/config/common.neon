@@ -17,3 +17,4 @@ spameriElasticSearch:
 
 services:
 	- Webtorio\Model\Engineer\IndexConfig
+	- Webtorio\Model\Planet\IndexConfig

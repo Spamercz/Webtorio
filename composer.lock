@@ -2319,12 +2319,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spameri/Elastic.git",
-                "reference": "1a3fa5d639c2e110892c3c3a2d04512f6cc30262"
+                "reference": "0fc568953b84a8f589fef4d5c6ce4aa9fdf25e79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spameri/Elastic/zipball/1a3fa5d639c2e110892c3c3a2d04512f6cc30262",
-                "reference": "1a3fa5d639c2e110892c3c3a2d04512f6cc30262",
+                "url": "https://api.github.com/repos/Spameri/Elastic/zipball/0fc568953b84a8f589fef4d5c6ce4aa9fdf25e79",
+                "reference": "0fc568953b84a8f589fef4d5c6ce4aa9fdf25e79",
                 "shasum": ""
             },
             "require": {
@@ -2385,7 +2385,7 @@
                 "issues": "https://github.com/spameri/elastic/issues",
                 "source": "https://github.com/Spameri/Elastic/tree/v2.0"
             },
-            "time": "2024-10-14T12:42:15+00:00"
+            "time": "2024-10-18T23:33:18+00:00"
         },
         {
             "name": "spameri/elastic-query",

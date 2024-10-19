@@ -11,7 +11,7 @@ class EngineerPresenter extends \Nette\Application\UI\Presenter
 {
 
 	public function __construct(
-		private readonly \Spameri\Elastic\ClientProvider $clientProvider,
+		private readonly \Spameri\Elastic\EntityManager $entityManager,
 	)
 	{
 	}
@@ -19,41 +19,38 @@ class EngineerPresenter extends \Nette\Application\UI\Presenter
 
 	public function renderDefault()
 	{
-		$this->clientProvider->client()->search([
-			'index' => 'engineer',
-			'body' => [
-				'query' => [
-					'bool' => [
-						'must' => [
-							[
-								'query' => [
-									'bool' => [
-										'should' => [
-											[
-												'multimatch' => [
-													'query' => 'Spamer',
-													'fields' => [
-														'name^3',
-														'description',
-													],
-													'type' => 'best_fields',
-												],
-											],
-											[
-												'term' => [
-													'nickname' => 'Spamer',
-												],
-											],
-											'minimum_should_match' => 1,
-										],
-									],
-								]
-							],
-						],
-					],
-				],
-			],
-		]);
+		$entity = new \Webtorio\Model\Engineer\Entity(
+			id: new \Spameri\Elastic\Entity\Property\EmptyElasticId(),
+			name: 'Spamer',
+			health: 100,
+			speed: 10,
+			inventory: new \Spameri\Elastic\Entity\Collection\STIEntityCollection(
+				... [
+					new \Webtorio\Model\Inventory\Steel(),
+					new \Webtorio\Model\Inventory\GreenCircuit(),
+					new \Webtorio\Model\Inventory\RedCircuit(),
+				]
+			),
+			armor: new \Webtorio\Model\Engineer\PowerArmor(),
+			planet: new \Webtorio\Model\Planet\Gleba(new \Spameri\Elastic\Entity\Property\EmptyElasticId()),
+		);
+
+		$this->entityManager->persist($entity);
+
+
+		$elasticQuery = new \Spameri\ElasticQuery\ElasticQuery();
+		$elasticQuery->addMustQuery(
+			new \Spameri\ElasticQuery\Query\ElasticMatch(
+				field: 'name',
+				query: 'Spamer',
+			),
+		);
+		$found = $this->entityManager->findOneBy(
+			elasticQuery: $elasticQuery,
+			class: \Webtorio\Model\Engineer\Entity::class
+		);
+
+		$this->template->add('engineer', $found);
 	}
 
 }
